@@ -1,5 +1,5 @@
-from trafegoRodoviario.Veiculos import Veiculos
+from Veiculos import Veiculos
 
 class Carro(Veiculos):
-    def __init__(self, modelo, velocidadeMaxima, cidadeAtual, cidadeDestino):
-        super.__init__("Carro", modelo, velocidadeMaxima, cidadeAtual, cidadeDestino)
+    def __init__(self, placa, modelo, velocidadeMaxima, cidadeAtual, cidadeDestino):
+        super().__init__("Carro", placa, modelo, velocidadeMaxima, cidadeAtual, cidadeDestino)
