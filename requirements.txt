@@ -1,0 +1,1 @@
+print-cores @ git+https://github.com/Jef-loppes-reis/print_cores
