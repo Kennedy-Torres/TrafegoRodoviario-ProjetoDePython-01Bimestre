@@ -1,23 +1,25 @@
-from Carro import Carro
-from Onibus import Onibus
-from Caminhao import Caminhao
+"""---"""
+from modules.carro import Carro
+from modules.onibus import Onibus
 
 
-meu_carro = Carro("ABC-1234", "Fusca", 120, "São Paulo", "Rio de Janeiro")
-caminhao = Caminhao("ccc-333", "Actros 2651", 240, "São Paulo", "Rio Grande do Sul")
+fusca = Carro(
+    placa='ABC-1234',
+    modelo='Fusca',
+    velocidade_maxima=120,
+    velocidade_atual=60,
+    cidade_atual='São Paulo',
+    cidade_destino='Rio de Janeiro')
 
 
-#meu_carro.acelerar(80)
-#meu_carro.acelerar(121)
-#meu_carro.desacelerar(77)
-meu_carro.velocimentro(12)
-meu_carro.velocimentro(20)
-meu_carro.velocimentro(9)
-meu_carro.velocimentro(5)
-meu_carro.velocimentro(0)
-meu_carro.velocimentro(-29)
-meu_carro.velocimentro(-69)
-meu_carro.velocimentro(12)
+onibus = Onibus(
+    placa='ABC-1234',
+    modelo='Mini-Bus',
+    velocidade_maxima=80,
+    velocidade_atual=60,
+    cidade_atual='São Paulo',
+    cidade_destino='Rio de Janeiro'
+)
 
-
-caminhao.velocimentro(30)
+print(fusca.__dict__)
+print(onibus.__dict__)
