@@ -1,3 +1,7 @@
+from time import sleep
+from random import randint
+
+
 class Veiculos:
     # __slots__ =['_tipo','_placa','_modelo','_velocidadeMaxima','_cidadeAtual','_cidadeDestino']
 
@@ -10,6 +14,9 @@ class Veiculos:
         self._velocidade_atual = kargs['velocidade_atual']
         self._cidade_atual = kargs['cidade_atual']
         self._cidade_destino = kargs['cidade_destino']
+
+    def nome_att(self, atributo:str) -> str:
+        return Veiculos.__dict__[f'_{atributo}']
 
     # consulta e definide velocidade máxima do veiculo
     @property
@@ -36,15 +43,12 @@ class Veiculos:
         self._velocidade_atual = velocidade_atual
 
 
-    def acelerar(self, nova_vel:int):
-        if nova_vel <= self._velocidade_maxima:
-            print("Acelerando...")
-            self._velocidade_atual = nova_vel
-        else:
-            print(f"Velocidade máxima atingida; ( passou de {
-                  self._velocidade_atual} KM/H para {self._velocidade_maxima} KM/H ).")
-            # trava, nao permite ultrapassar a velocidadeMaxima
-            self._velocidade_atual = self._velocidade_maxima
+    def acelerar(self, velocidade_atual:int):
+        while True:
+            vel_random = randint(velocidade_atual, self.vel_maxima+10)
+            sleep(0.5)
+            if velocidade_atual < vel_random:
+                return vel_random
 
 
     def desacelerar(self, nova_vel:int):
