@@ -26,8 +26,7 @@ class Veiculos:
 
     @vel_maxima.setter
     def vel_maxima(self, velocidade_maxima:int):
-        print(f"{self._tipo} de modelo {self._modelo} alterou sua velocidade máxima de {
-              self._velocidade_maxima} KM/H para {velocidade_maxima} KM/H")
+        print(f"{self._tipo} de modelo {self._modelo} alterou sua velocidade máxima de {self._velocidade_maxima} KM/H para {velocidade_maxima} KM/H")
         self._velocidade_maxima = velocidade_maxima
 
     # consulta e definide velocidade atual do veiculo
@@ -38,8 +37,7 @@ class Veiculos:
 
     @vel_atual.setter
     def vel_atual(self, velocidade_atual:int):
-        print(f"{self._tipo} de placa {self._placa} passou de {
-              self._velocidade_atual} KM/H para {velocidade_atual} KM/H")
+        print(f"{self._tipo} de placa {self._placa} passou de {self._velocidade_atual} KM/H para {velocidade_atual} KM/H")
         self._velocidade_atual = velocidade_atual
 
 
@@ -51,20 +49,22 @@ class Veiculos:
                 return vel_random
 
 
-    def desacelerar(self, nova_vel:int):
-        if nova_vel < self._velocidade_atual >= 0:
-            print("Desacelerando...")
-            self._velocidade_atual = nova_vel
-        # por convensão adotamos o limite negativo como a metade do limite positivo
-        elif nova_vel < 0 and nova_vel > (-self._velocidade_maxima/2):
-            print("Dando ré...")
-            self._velocidade_atual = nova_vel
-        else:
-            print(f"""
-\n======================= ATENÇÃO =======================
-Velocidade máxima de ré atingida. ( Limite: {-self._velocidade_maxima/2} KM/H)
-=======================================================""")
-            self._velocidade_atual = -self._velocidade_maxima/2
+    def desacelerar(self, velocidade_atual:int):
+        while True:
+            vel_random = randint(0, velocidade_atual)
+            sleep(0.5)
+            if vel_random < velocidade_atual:
+                return vel_random
+            elif vel_random <= 0:
+                return 0
+            
+    '''def dar_re(self):
+        while True:
+            vel_random = randint(-self.vel_maxima // 2, 0)
+            sleep(0.5)
+            if vel_random < 0:
+                return vel_random
+    '''
 
 
     def velocimentro(self, nova_vel:int):
