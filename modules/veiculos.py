@@ -1,9 +1,9 @@
 from time import sleep
 from random import randint
+from print_cores import Cores
 
 
 class Veiculos:
-    # __slots__ =['_tipo','_placa','_modelo','_velocidadeMaxima','_cidadeAtual','_cidadeDestino']
 
     # def __init__(self, tipo:str, placa:str, modelo:str, velocidadeMaxima:str, cidadeAtual:str, cidadeDestino:str):
     def __init__(self, **kargs):
@@ -14,10 +14,30 @@ class Veiculos:
         self._velocidade_atual = kargs['velocidade_atual']
         self._cidade_atual = kargs['cidade_atual']
         self._cidade_destino = kargs['cidade_destino']
+        self._faixa_atual = kargs['faixa_atual']
+        self._posicao = kargs['posicao'] # posicao relacionada ao local que o veiculo esta na estrada
 
     def nome_att(self, atributo:str) -> str:
         return Veiculos.__dict__[f'_{atributo}']
+    
+    # consulta e define a faixa atual
+    @property
+    def faixa(self):
+        return self._faixa_atual
+    
+    @faixa.setter
+    def faixa(self, nova_faixa):
+        self._faixa_atual = nova_faixa
+        
+    
+    @property
+    def pos_atual_na_estrada(self):
+        return self._posicao
 
+    @pos_atual_na_estrada.setter
+    def pos_atual_na_estrada(self, nova_posicao):
+        self._posicao = nova_posicao
+        
     # consulta e definide velocidade máxima do veiculo
     @property
     def vel_maxima(self):
@@ -58,20 +78,20 @@ class Veiculos:
             elif vel_random <= 0:
                 return 0
             
-    '''def dar_re(self):
-        while True:
-            vel_random = randint(-self.vel_maxima // 2, 0)
-            sleep(0.5)
-            if vel_random < 0:
-                return vel_random
-    '''
 
 
-    def velocimentro(self, nova_vel:int):
+    '''def velocimentro(self, nova_vel:int):
         if nova_vel > self._velocidade_atual:
             self.acelerar(nova_vel)
         else:
             self.desacelerar(nova_vel)
+    '''
 
-    # def mudar_de_faixa():
-    # uma das lógicas que podemos adotar só pode mudar de faixa se o respectivo veiculo da faixa desacelerar
+    def mudar_de_faixa(self, estrada, nova_faixa):
+        if estrada.verificar_posicao_livre(nova_faixa, self._posicao):
+            print(f"{self._tipo} de placa {self._placa} mudando da faixa {self._faixa_atual} para faixa {nova_faixa}\n // posicao: {self.pos_atual_na_estrada}")
+            
+            estrada.atualizar_faixa(self, self._faixa_atual, nova_faixa)
+            self._faixa_atual = nova_faixa
+        else:
+            print(f"{self._tipo} de placa {self._placa} não pode mudar para a faixa {nova_faixa} pois a posição {self.pos_atual_na_estrada} está ocupada")

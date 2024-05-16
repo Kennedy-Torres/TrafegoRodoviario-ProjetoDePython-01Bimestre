@@ -3,17 +3,24 @@ from print_cores import Cores
 
 from modules.carro import Carro
 from modules.onibus import Onibus
+from modules.estrada import Estrada
 
 
 if __name__ == '__main__':
-
+    
+    # criando uma estrada com 3 faixas
+    estrada = Estrada(3,"Tres corações")  
+    
     fusca = Carro(
         placa='ABC-1234',
         modelo='Fusca',
         velocidade_maxima=120,
         velocidade_atual=60,
         cidade_atual='São Paulo',
-        cidade_destino='Rio de Janeiro')
+        cidade_destino='Rio de Janeiro',
+        faixa_atual=1,
+        posicao=0
+    )
 
 
     onibus = Onibus(
@@ -22,9 +29,16 @@ if __name__ == '__main__':
         velocidade_maxima=80,
         velocidade_atual=60,
         cidade_atual='São Paulo',
-        cidade_destino='Rio de Janeiro'
+        cidade_destino='Rio de Janeiro',
+        faixa_atual=2,
+        posicao=0
     )
+    
+    # adicionando veículos à faixa inicial
+    estrada.adicionar_veiculo(fusca, fusca.faixa)
+    estrada.adicionar_veiculo(onibus, onibus.faixa)
 
+    print(estrada)
 
     ## Metodo para aumentar a velocidade, usando o metodo RANDOM
     while True:
@@ -61,3 +75,8 @@ if __name__ == '__main__':
 
     print("=======================")
     
+    # Mudança de faixa
+    fusca.mudar_de_faixa(estrada, 2)
+    #onibus.mudar_de_faixa(estrada, 2)
+    
+    print(estrada)
