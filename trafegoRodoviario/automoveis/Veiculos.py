@@ -10,6 +10,7 @@ class Veiculos:
         self._cidadeAtual = None
         self._cidadeDestino = None
         self._faixa = 1 # veiculos inicializados na faixa 1 
+        self._posicao = 0  # posição inicial na rodovia
         
         
     # consulta e definide velocidade máxima do veiculo
@@ -65,14 +66,17 @@ Velocidade máxima de ré atingida. ( Limite: {-self.velocidadeMaxima/2} KM/H)
     def mudar_de_faixa(self, nova_faixa, rodovia):
         if 1 <= nova_faixa <= rodovia._numero_de_faixas:
             if self._faixa != nova_faixa:
-                #print("Mudando de faixa...")
-                print(f"""Mudando de faixa...
-{self._tipo} de placa {self._placa} mudou da faixa {self._faixa} para a faixa {nova_faixa}.""")
+                if (rodovia.verificar_colisao_lateral(self, nova_faixa, self._posicao)):
+                    print(f"""Colisão lateral ao mudar de faixa...
+    {self._tipo} de placa {self._placa} bateu ao tentar passar para a faixa {nova_faixa}.""")
+                else:
+                    print(f"""Mudando de faixa...
+    {self._tipo} de placa {self._placa} mudou da faixa {self._faixa} para a faixa {nova_faixa}.""")
                 self._faixa = nova_faixa
             else:
                 print("...")
                 print(f"{self._tipo} de placa {self._placa} já está na faixa {nova_faixa}.")
         else:
             print(f"""Faixa inválida...
-{self._tipo} de placa {self._placa} não conseguiu mudar de faixa; A rodovia possui apenas {rodovia._numero_de_faixas} faixas.""")
+    {self._tipo} de placa {self._placa} não conseguiu mudar de faixa; A rodovia possui apenas {rodovia._numero_de_faixas} faixas.""")
        
