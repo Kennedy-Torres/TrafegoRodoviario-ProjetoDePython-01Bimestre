@@ -7,6 +7,7 @@ class Estrada:
         self.nome_da_estrada = nome_da_estrada
 
     def adicionar_veiculo(self, veiculo, id_faixa):
+        print(f'{Cores.MARROM}',veiculo.nome_att('modelo'),f'entrou na estrada {self.nome_da_estrada}{Cores.RESET}')
         self.faixas[id_faixa - 1].adicionar_veiculo(veiculo)
 
     def atualizar_faixa(self, veiculo, faixa_atual, nova_faixa):
@@ -18,4 +19,4 @@ class Estrada:
 
     def __str__(self):
         estado_faixas = "\n".join(str(faixa) for faixa in self.faixas)
-        return f'-> {Cores.MARROM}Estado da Estrada {Cores.SUBLINHADO}{self.nome_da_estrada}:{Cores.RESET} \n{estado_faixas} {Cores.RESET}'
+        return f'{Cores.NEGRITO}Estado da Estrada {Cores.SUBLINHADO}{self.nome_da_estrada}:{Cores.RESET} \n{estado_faixas} {Cores.RESET}'

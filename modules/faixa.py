@@ -16,4 +16,4 @@ class Faixa:
         return True
 
     def __str__(self):
-        return f"Faixa {self.id_faixa} com {len(self.veiculos)} veículos"
+        return f"  -Faixa {self.id_faixa} com {len(self.veiculos)} veículo(s)"

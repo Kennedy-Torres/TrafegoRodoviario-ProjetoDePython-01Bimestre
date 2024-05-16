@@ -43,7 +43,7 @@ if __name__ == '__main__':
     ## Metodo para aumentar a velocidade, usando o metodo RANDOM
     while True:
         nova_velocidade = fusca.acelerar(fusca.vel_atual)
-        print(f'-> {Cores.AZUL}Aumentando a velocidade de {fusca.vel_atual} KM/h para {nova_velocidade} KM/h{Cores.RESET}')
+        print(f'-> {Cores.AZUL}Aumentando a velocidade de {fusca.vel_atual} KM/h para {nova_velocidade} KM/h durante 1hora{Cores.RESET}')
         if fusca.vel_atual < nova_velocidade < fusca.vel_maxima:
             fusca.vel_atual = nova_velocidade
         else:
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     print("=======================")
     while True:
         nova_velocidade = onibus.acelerar(onibus.vel_atual)
-        print(f'-> {Cores.AZUL}Aumentando a velocidade de {onibus.vel_atual} KM/h para {nova_velocidade} KM/h{Cores.RESET}')
+        print(f'-> {Cores.AZUL}Aumentando a velocidade de {onibus.vel_atual} KM/h para {nova_velocidade} KM/h durante 1hora{Cores.RESET}')
         if onibus.vel_atual < nova_velocidade < onibus.vel_maxima:
             onibus.vel_atual = nova_velocidade
         else:
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     ## Metodo para reduzir a velocidade, usando o metodo RANDOM
     while True:
         nova_velocidade = fusca.desacelerar(fusca.vel_atual)
-        print(f'-> {Cores.AZUL}Reduzindo a velocidade de {fusca.vel_atual} KM/h para {nova_velocidade} KM/h{Cores.RESET}')
+        print(f'-> {Cores.AZUL}Reduzindo a velocidade de {fusca.vel_atual} KM/h para {nova_velocidade} KM/h durante 1hora{Cores.RESET}')
         if nova_velocidade < fusca.vel_atual  and nova_velocidade>0:
             fusca.vel_atual = nova_velocidade
         else:
@@ -77,6 +77,6 @@ if __name__ == '__main__':
     
     # Mudança de faixa
     fusca.mudar_de_faixa(estrada, 2)
-    #onibus.mudar_de_faixa(estrada, 2)
+    onibus.mudar_de_faixa(estrada, 1)
     
     print(estrada)
