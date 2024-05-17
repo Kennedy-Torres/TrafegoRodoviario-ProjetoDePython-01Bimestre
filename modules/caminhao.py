@@ -15,8 +15,8 @@ if __name__ == '__main__':
         modelo= 'Volvo FH 540',
         velocidade_maxima= 120,
         velocidade_atual= 60,
-        cidade_atual= 'São Paulo',
-        cidade_destino= 'Rio de Janeiro',
+        #cidade_atual= 'São Paulo',
+        #cidade_destino= 'Rio de Janeiro',
         faixa_atual= 3, # inicializa o caminhao na faixa 3
         posicao= 0,
     ))

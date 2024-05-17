@@ -12,8 +12,8 @@ class Veiculos:
         self._modelo = kargs['modelo']
         self._velocidade_maxima = kargs['velocidade_maxima']
         self._velocidade_atual = kargs['velocidade_atual']
-        self._cidade_atual = kargs['cidade_atual']
-        self._cidade_destino = kargs['cidade_destino']
+        #self._cidade_atual = kargs['cidade_atual']
+        #self._cidade_destino = kargs['cidade_destino']
         self._faixa_atual = kargs['faixa_atual']
         self._posicao = kargs['posicao'] # posicao relacionada ao local que o veiculo esta na estrada
 
@@ -58,7 +58,7 @@ class Veiculos:
 
     @vel_atual.setter
     def vel_atual(self, velocidade_atual:int):
-        print(f"{self._tipo} de placa {self._placa} passou de {self._velocidade_atual} KM/H para {velocidade_atual} KM/H")
+        print(f"({self.nome_att('tipo')}) - {self.nome_att('modelo')} de placa {self.nome_att('placa')} passou de:\n   -> {self._velocidade_atual} KM/H para {velocidade_atual} KM/H.")
         self.atualizar_posicao(self._velocidade_atual, velocidade_atual)
         self._velocidade_atual = velocidade_atual
         
@@ -92,17 +92,19 @@ class Veiculos:
 
     def mudar_de_faixa(self, estrada, nova_faixa):
         if estrada.verificar_posicao_livre(nova_faixa, self.pos_atual_na_estrada):
-            print(f"{self.nome_att('tipo')} de placa {self.nome_att('placa')} mudando da faixa {self._faixa_atual} para faixa {nova_faixa} na posicao {self.pos_atual_na_estrada} km da estrada {estrada.nome_da_estrada}")
+            print(f"({self.nome_att('tipo')}) - {self.nome_att('modelo')} de placa {self.nome_att('placa')} mudando da faixa {self._faixa_atual} para faixa {nova_faixa} na posicao {self.pos_atual_na_estrada} km da estrada {estrada._nome_da_estrada}")
             
             estrada.atualizar_faixa(self, self._faixa_atual, nova_faixa)
             self._faixa_atual = nova_faixa
         else:
-            print(f"-> {Cores.VERMELHO_CLARO}{self._tipo} de placa {self._placa} não pode mudar para a faixa {nova_faixa} pois a posição {self.pos_atual_na_estrada} está ocupada{Cores.RESET}")
+            print(f"-> {Cores.VERMELHO_CLARO}({self._tipo}) - {self.nome_att('modelo')} de placa {self._placa} não pode mudar para a faixa {nova_faixa} pois a posição {self.pos_atual_na_estrada} está ocupada{Cores.RESET}")
 
     def atualizar_posicao(self, velocidade_inicial, velocidade_final):
         tempo = 1  # duracao de 1hora para aumentar de uma velocidade x para y ... deixei estatico para facilitar...
         velocidade_media = (velocidade_inicial + velocidade_final) / 2
         deslocamento = (velocidade_media * (tempo))
         nova_posicao = self._posicao + deslocamento
-        print(f"{self._tipo} de placa {self._placa} mudou da posição {self._posicao} km para {nova_posicao} km") # posicao q o veic está dentro da estrada
+        print(f"   -> Da posição {self._posicao} km para {nova_posicao} km") # posicao q o veic está dentro da estrada
         self._posicao = nova_posicao
+        
+    
