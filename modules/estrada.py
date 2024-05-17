@@ -81,9 +81,7 @@ class Estrada:
             bool: _description_
         """
         if veiculo.pos_atual_na_estrada >= self.nome_att_da_estrada('tamanho'):
-            print(f'{Cores.VERDE_CLARO}({veiculo.nome_att("tipo")}) - {
-                veiculo.nome_att("modelo")} de placa {veiculo.nome_att("placa")} chegou em: {
-                    self.nome_att_da_estrada("cidade_final")}!{Cores.RESET}')
+            print(f'{Cores.VERDE_CLARO}({veiculo.nome_att("tipo")}) - {veiculo.nome_att("modelo")} de placa {veiculo.nome_att("placa")} chegou em: {self.nome_att_da_estrada("cidade_final")}!{Cores.RESET}')
             return True
         return False
 
@@ -94,5 +92,4 @@ class Estrada:
             _type_: _description_
         """
         estado_faixas = "\n".join(str(faixa) for faixa in self.faixas)
-        return f'{Cores.NEGRITO}Estado da Estrada {Cores.SUBLINHADO}{
-            self.nome_att_da_estrada("nome_da_estrada")}:{Cores.RESET} \n{estado_faixas} {Cores.RESET}'
+        return f'{Cores.NEGRITO}Estado da Estrada {Cores.SUBLINHADO}{self.nome_att_da_estrada("nome_da_estrada")}:{Cores.RESET} \n{estado_faixas} {Cores.RESET}'

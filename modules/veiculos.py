@@ -92,9 +92,7 @@ class Veiculos:
 
     def mudar_de_faixa(self, estrada, nova_faixa):
         if estrada.verificar_posicao_livre(nova_faixa, self.pos_atual_na_estrada):
-            print(f"({self.nome_att('tipo')}) - {self.nome_att('modelo')} de placa {
-                self.nome_att('placa')} mudando da faixa {self._faixa_atual} para faixa {
-                    nova_faixa} na posicao {self.pos_atual_na_estrada} km da estrada {estrada._nome_da_estrada}")
+            print(f"{Cores.AMARELO}({self.nome_att('tipo')}) - {self.nome_att('modelo')} de placa {self.nome_att('placa')} mudando da faixa {self._faixa_atual} para faixa {nova_faixa} na posicao {self.pos_atual_na_estrada} km da estrada {estrada._nome_da_estrada}{Cores.RESET}")
             
             estrada.atualizar_faixa(self, self._faixa_atual, nova_faixa)
             self._faixa_atual = nova_faixa
