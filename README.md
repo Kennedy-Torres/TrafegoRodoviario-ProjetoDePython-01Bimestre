@@ -45,12 +45,13 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 👨‍💻 Contribuidores
 
-Esse projeto foi individual. 👏
-
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/jef-loppes-reis"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/88293401?v=4" width="100px;"/><br /><sub><b>Jeferson Lopes</b></sub></a><br /><a>👨‍💻</a></td>
-    <td align="center"><a href="https://github.com/Kennedy-Torres"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/128331199?v=4" width="100px;"/><br /><sub><b>Daniel Luiz</b></sub></a><br /><a>👨‍💻</a></td>
+    <td align="center"><a href="https://github.com/jef-loppes-reis"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/88293401?v=4" width="100px;"/><br /><sub><b>Jeferson Lopes</b></sub></a><br /><a></a></td>
+    <td align="center"><a href="https://github.com/Kennedy-Torres"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/128331199?v=4" width="100px;"/><br /><sub><b>Kennedy Torres</b></sub></a><br /><a></a></td>
+    <td align="center"><a href="https://github.com/Viniciusleao99"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/111468790?v=4" width="100px;"/><br /><sub><b>Vinicius Leão</b></sub></a><br /><a></a></td>
+    <td align="center"><a href="https://github.com/Leoribeiro61"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/111469440?v=4" width="100px;"/><br /><sub><b>Leo Ribeiro</b></sub></a><br /><a></a></td>
+    <td align="center"><a href="https://github.com/Nickolaaas"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/158603640?v=4" width="100px;"/><br /><sub><b>Nikolas</b></sub></a><br /><a></a></td>
   </tr>
 </table>
 
