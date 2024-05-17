@@ -16,6 +16,8 @@ if __name__ == '__main__':
         modelo= 'Mini-Bus',
         velocidade_maxima= 80,
         velocidade_atual= 60,
-        cidade_atual= 'São Paulo',
-        cidade_destino= 'Rio de Janeiro'
+        #cidade_atual= 'São Paulo',
+        #cidade_destino= 'Rio de Janeiro',
+        faixa_atual= 2, # inicializa o onibus na faixa 2
+        posicao= 0 
     ))

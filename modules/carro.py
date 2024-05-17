@@ -1,4 +1,4 @@
-"""---"""
+"""Modulo Carro"""
 from modules.veiculos import Veiculos
 
 
@@ -21,6 +21,6 @@ if __name__ == '__main__':
         modelo= 'Fusca',
         velocidade_maxima= 120,
         velocidade_atual= 60,
-        cidade_atual= 'São Paulo',
-        cidade_destino= 'Rio de Janeiro'
+        faixa_atual= 1, # inicializa o carro na faixa 1
+        posicao= 0
     ))
