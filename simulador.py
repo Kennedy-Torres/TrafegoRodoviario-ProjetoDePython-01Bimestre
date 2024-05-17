@@ -51,6 +51,7 @@ if __name__ == '__main__':
         cidade_final='Rio de Janeiro'        
     )
     
+    '''
     estrada2 = Estrada(
         num_faixas=2,
         nome_da_estrada='Carvalho Velho',
@@ -58,10 +59,11 @@ if __name__ == '__main__':
         cidade_inicial='MG',
         cidade_final='RS'        
     )
-    
+    '''
     # adicionando veículos à faixa inicial
     estrada.adicionar_veiculo(fusca, fusca.faixa)
     estrada.adicionar_veiculo(onibus, onibus.faixa)
+    estrada.adicionar_veiculo(caminhao, caminhao.faixa)
 
     print(estrada)
     print("==============")
@@ -99,9 +101,12 @@ if __name__ == '__main__':
         else:
             fusca.vel_atual = 0
             print(f'{Cores.VERMELHO_CLARO}O veiculo está parado!{Cores.RESET}')
+            if estrada.verificar_fim_estrada(fusca):
+                estrada.remov_veiculo(fusca) 
+                break
             break
     print("=======================")
-    
+    #print(estrada)
     
     while True:
         nova_velocidade = onibus.acelerar(onibus.vel_atual)
@@ -129,15 +134,14 @@ if __name__ == '__main__':
         else:
             onibus.vel_atual = 0
             print(f'{Cores.VERMELHO_CLARO}O veiculo está parado!{Cores.RESET}')
+            if estrada.verificar_fim_estrada(onibus):
+                estrada.remov_veiculo(onibus) 
+                break
             break
     print("=======================")
     
-    print(estrada)
-    print("=======================")
-    
-    estrada2.adicionar_veiculo(caminhao, caminhao.faixa)
-    print(estrada2)
-    print("=======================")
+    #print(estrada)
+    #print("=======================")
     
     while True:
         nova_velocidade = caminhao.acelerar(caminhao.vel_atual)
@@ -152,7 +156,7 @@ if __name__ == '__main__':
             caminhao.vel_atual = caminhao.vel_maxima
             break
     print("=======================")
-    caminhao.mudar_de_faixa(estrada2, 1)
+    caminhao.mudar_de_faixa(estrada, 3)
     
     while True:
         nova_velocidade = caminhao.desacelerar(caminhao.vel_atual)
@@ -165,6 +169,9 @@ if __name__ == '__main__':
         else:
             caminhao.vel_atual = 0
             print(f'{Cores.VERMELHO_CLARO}O veiculo está parado!{Cores.RESET}')
+            if estrada.verificar_fim_estrada(caminhao):
+                estrada.remov_veiculo(caminhao) 
+                break
             break
     print("=======================")
-    print(estrada2)
+    print(estrada)

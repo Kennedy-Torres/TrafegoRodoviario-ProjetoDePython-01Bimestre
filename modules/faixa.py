@@ -20,4 +20,6 @@ class Faixa:
         return True
 
     def __str__(self):
+        #veiculos_str = ", ".join([f"{v.nome_att('modelo')} ({v.nome_att('placa')})" for v in self.veiculos.values()])
+        #return f"Faixa {self.id_faixa}: {veiculos_str}"
         return f"  -Faixa {self.id_faixa} com {len(self.veiculos)} veículo(s)"
